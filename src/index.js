@@ -55,7 +55,7 @@ Content Cell  | Content Cell
         }
     }
 
-    handleChange (value) {
+    handleChange(value) {
         // let confluenceValue = m2c(value)
         // let confluenceValue = m2c(value).replace(/&/g, '&amp;').replace(/\n/g, '<br>').replace(/</g, '&lt;').replace(/>/g, '&gt;')
         this.setState({
@@ -64,14 +64,14 @@ Content Cell  | Content Cell
         })
     }
 
-    copy () {
+    copy() {
         let content = document.getElementById("content")
         content.select()
         document.execCommand('Copy')
         alert('复制成功')
     }
 
-    save () {
+    save() {
         let blob = new Blob([this.state.value], { type: 'text/html' })
         let url = URL.createObjectURL(blob)
         let a = document.createElement('a')
@@ -82,7 +82,7 @@ Content Cell  | Content Cell
         document.body.removeChild(a)
     }
 
-    render () {
+    render() {
         const { value, confluenceValue } = this.state
         return (
             <div className="wrapper">
