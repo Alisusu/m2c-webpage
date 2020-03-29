@@ -93,6 +93,10 @@ _.extend(Renderer.prototype, rawRenderer.prototype, {
     }
     , code: function (code, lang) {
         // {code:language=java|borderStyle=solid|theme=RDark|linenumbers=true|collapse=true}
+        var text = lang
+        var lang = text.split("|")[0]
+        var t = text.split("|")[1]
+        console.log(lang, t)
         if (lang) {
             lang = lang.toLowerCase()
         }
@@ -100,7 +104,7 @@ _.extend(Renderer.prototype, rawRenderer.prototype, {
         var param = {
             language: lang,
             borderStyle: 'solid',
-            theme: 'RDark', // dark is good
+            theme: 'FadeToGrey', // dark is good
             linenumbers: true,
             collapse: false
         }
@@ -109,7 +113,7 @@ _.extend(Renderer.prototype, rawRenderer.prototype, {
         //     // code is too long
         //     param.collapse = true
         // }
-        param = qs.stringify(param, '|', '=')
+        param = "title=" + t + "|" + qs.stringify(param, '|', '=')
         return '{code:' + param + '}\n' + code + '\n{code}\n\n'
     }
 })
