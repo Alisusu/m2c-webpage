@@ -95,6 +95,7 @@ _.extend(Renderer.prototype, rawRenderer.prototype, {
         // {code:language=java|borderStyle=solid|theme=RDark|linenumbers=true|collapse=true}
         var text = lang
         var lang = text.split("|")[0]
+        lang = lang.trim()
         var t = text.split("|")[1]
         console.log(lang, t)
         if (lang) {
